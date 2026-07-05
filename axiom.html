@@ -95,11 +95,11 @@
   table { width: 100%; border-collapse: collapse; font-size: 11px; }
   thead tr { background: #1a1a2e; color: white; }
   thead th { padding: 6px 12px; text-align: left; font-weight: 500; font-size: 9px; letter-spacing: 1px; }
-  thead th:last-child, thead th:nth-last-child(2), thead th:nth-last-child(3) { text-align: right; }
+  thead th:last-child, thead th:nth-last-child(2) { text-align: right; }
   tbody tr { border-bottom: 1px solid #eee; }
   tbody tr:nth-child(even) { background: #f9faff; }
   tbody td { padding: 6px 12px; color: #333; vertical-align: top; }
-  tbody td:last-child, tbody td:nth-last-child(2), tbody td:nth-last-child(3) { text-align: right; white-space: nowrap; }
+  tbody td:last-child, tbody td:nth-last-child(2) { text-align: right; white-space: nowrap; }
   .sub-note { font-size: 9px; color: #888; margin-top: 1px; }
   .totals { width: 260px; margin-left: auto; margin-top: 5px; }
   .totals .row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 11px; border-bottom: 1px solid #eee; color: #555; }
@@ -170,7 +170,6 @@
   <div>見積番号 <span>EST-2026-012</span></div>
   <div>発行日 <span>2026/07/06</span></div>
   <div>有効期限 <span>2026/08/06</span></div>
-  <div>時間単価 <span>¥4,500/時</span></div>
 </div>
 
 <div class="body">
@@ -200,7 +199,6 @@
         <tr>
           <th>作業内容</th>
           <th style="text-align:right;">工数</th>
-          <th style="text-align:right;">単価</th>
           <th style="text-align:right;">金額</th>
         </tr>
       </thead>
@@ -211,7 +209,6 @@
             <div class="sub-note">WiFi依存の除去・クラウドURL対応／データDL機能実装／バグ修正・動作確認／Google Play Store申請</div>
           </td>
           <td style="text-align:right;">40h</td>
-          <td style="text-align:right;">¥4,500</td>
           <td style="text-align:right;">¥180,000</td>
         </tr>
         <tr>
@@ -220,7 +217,6 @@
             <div class="sub-note">設計・仕様整理／GPS音声案内機能／コンテンツ表示（写真・テキスト・イベント）／クラウドDL・差分更新／日英バイリンガル対応／実機テスト・現地GPS確認／App Store申請</div>
           </td>
           <td style="text-align:right;">160h</td>
-          <td style="text-align:right;">¥4,500</td>
           <td style="text-align:right;">¥720,000</td>
         </tr>
         <tr>
@@ -229,7 +225,6 @@
             <div class="sub-note">ストレージセットアップ（Cloudflare R2）／コンテンツ配信API実装／CDN設定・HTTPS化／既存データ移行</div>
           </td>
           <td style="text-align:right;">40h</td>
-          <td style="text-align:right;">¥4,500</td>
           <td style="text-align:right;">¥180,000</td>
         </tr>
       </tbody>
