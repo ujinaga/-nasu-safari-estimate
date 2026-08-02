@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>お見積書（月額プラン）- 那須サファリパーク（Axiom版）</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    color: #1a1a2e;
+    background: #fff;
+    width: 210mm;
+    min-height: 297mm;
+  }
+  .header {
+    background: #1a1a2e;
+    color: white;
+    padding: 14px 40px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header .brand { font-size: 15px; letter-spacing: 6px; font-weight: 300; opacity: 0.9; }
+  .header .doc-title { font-size: 24px; font-weight: 700; letter-spacing: 8px; margin-top: 2px; }
+  .header .doc-sub { font-size: 10px; opacity: 0.5; letter-spacing: 2px; margin-top: 2px; }
+  .accent-bar { height: 3px; background: linear-gradient(90deg, #4361ee, #7209b7, #f72585); }
+  .meta-row {
+    background: #f6f8ff;
+    padding: 7px 40px;
+    display: flex;
+    gap: 32px;
+    font-size: 10px;
+    color: #555;
+    border-bottom: 1px solid #e8eaf6;
+  }
+  .meta-row span { font-weight: 600; color: #1a1a2e; margin-left: 5px; }
+  .body { padding: 12px 40px 14px; }
+  .greeting {
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .section-box {
+    border: 1px solid #e0e4f0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .section-box .box-header {
+    background: #1a1a2e;
+    color: white;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+  }
+  .section-box .box-body {
+    padding: 7px 14px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: #333;
+  }
+  .section-box .box-body .name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-top: 1px;
+  }
+  .amount-block {
+    background: #1a1a2e;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 24px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .amount-block .label { font-size: 10px; letter-spacing: 2px; opacity: 0.7; margin-bottom: 2px; }
+  .amount-block .amount { font-size: 28px; font-weight: 700; letter-spacing: 2px; }
+  .amount-block .amount .unit { font-size: 13px; margin-left: 4px; opacity: 0.8; font-weight: 400; }
+  .amount-block .amount .currency { font-size: 15px; margin-right: 3px; opacity: 0.8; }
+  .amount-block .note { font-size: 9px; opacity: 0.6; letter-spacing: 1px; text-align: right; line-height: 1.6; }
+  .items-section { margin-bottom: 10px; }
+  .section-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #4361ee;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  thead tr { background: #1a1a2e; color: white; }
+  thead th { padding: 6px 12px; text-align: left; font-weight: 500; font-size: 9px; letter-spacing: 1px; }
+  tbody tr { border-bottom: 1px solid #eee; }
+  tbody tr:nth-child(even) { background: #f9faff; }
+  tbody td { padding: 6px 12px; color: #333; vertical-align: top; }
+  .sub-note { font-size: 9px; color: #888; margin-top: 1px; }
+  .remarks {
+    padding: 7px 14px;
+    background: #f6f8ff;
+    border: 1px solid #e0e4f0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 10px;
+    color: #555;
+    line-height: 1.8;
+  }
+  .remarks .label { font-weight: 700; color: #1a1a2e; display: block; margin-bottom: 3px; font-size: 9px; letter-spacing: 2px; }
+  .monthly-box {
+    border: 1px solid #e0e4f0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .monthly-box .box-header {
+    background: #4361ee;
+    color: white;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+  }
+  .monthly-box .box-body {
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #333;
+    line-height: 1.7;
+  }
+  .footer-row { display: flex; gap: 12px; }
+  .payment-box, .issuer-box { flex: 1; border: 1px solid #e0e4f0; border-radius: 6px; overflow: hidden; }
+  .footer-box-header {
+    background: #f6f8ff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #4361ee;
+    padding: 5px 14px;
+    border-bottom: 1px solid #e0e4f0;
+  }
+  .footer-box-body { padding: 7px 14px; font-size: 10px; color: #444; line-height: 1.7; }
+  .issuer-box .footer-box-header, .issuer-box .footer-box-body { text-align: right; }
+  .back-link { display: block; max-width: 210mm; margin: 12px auto 0; font-size: 11px; }
+  .back-link a { color: #4361ee; text-decoration: none; }
+  @media print { .back-link { display: none; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <div class="brand">AXIOM</div>
+    <div class="doc-title">見 積 書</div>
+    <div class="doc-sub">ESTIMATE — 月額プラン</div>
+  </div>
+  <div style="text-align:right; color: rgba(255,255,255,0.7); font-size:11px;">
+    <div>発行日</div>
+    <div style="font-size:14px; color:white; font-weight:600; margin-top:3px;">2026 / 08 / 02</div>
+    <div style="margin-top:5px; font-size:9px;">No. EST-2026-013</div>
+    <div style="margin-top:3px; font-size:9px;">有効期限：2026 / 09 / 02</div>
+  </div>
+</div>
+<div class="accent-bar"></div>
+
+<div class="meta-row">
+  <div>見積番号 <span>EST-2026-013</span></div>
+  <div>発行日 <span>2026/08/02</span></div>
+  <div>有効期限 <span>2026/09/02</span></div>
+</div>
+
+<div class="body">
+
+  <div class="greeting">先にお送りした一括プラン（EST-2026-012）に加え、初期費用を抑えたい場合の月額プランをご用意いたしました。どちらか進めやすい方をお選びいただけます。</div>
+
+  <div class="section-box">
+    <div class="box-header">■ ESTIMATE FOR — お見積り先</div>
+    <div class="box-body">
+      〒 325-0303　栃木県那須郡那須町大字高久乙3523<br>
+      <div class="name">那須サファリパーク 御中</div>
+    </div>
+  </div>
+
+  <div class="amount-block">
+    <div>
+      <div class="label">MONTHLY PLAN — 月額料金</div>
+      <div class="amount"><span class="currency">¥</span>60,000<span class="unit">/ 月</span></div>
+    </div>
+    <div class="note">初期費用 ¥0<br>最低契約期間 36ヶ月</div>
+  </div>
+
+  <div class="items-section">
+    <div class="section-title">Included — 月額に含まれるもの</div>
+    <table>
+      <thead>
+        <tr><th>内容</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Androidアプリ改修
+            <div class="sub-note">WiFi依存の除去・クラウドURL対応／データDL機能実装／バグ修正・動作確認／Google Play Store申請</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            iOSアプリ新規開発
+            <div class="sub-note">設計・仕様整理／GPS音声案内機能／コンテンツ表示（写真・テキスト・イベント）／クラウドDL・差分更新／日英バイリンガル対応／実機テスト・現地GPS確認／App Store申請</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            クラウドサーバー構築
+            <div class="sub-note">ストレージセットアップ（Cloudflare R2）／コンテンツ配信API実装／CDN設定・HTTPS化／既存データ移行</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            保守・運用
+            <div class="sub-note">コンテンツデータ更新・アプリ動作監視・OSアップデート対応</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="monthly-box">
+    <div class="box-header">■ CONTRACT TERMS — 契約条件</div>
+    <div class="box-body">
+      最低契約期間：36ヶ月（36ヶ月経過後は1ヶ月単位で自動更新、以降いつでも解約可）<br>
+      最低契約期間内にご解約の場合：残期間分の開発費相当額を精算の上、清算金をご請求いたします
+    </div>
+  </div>
+
+  <div class="remarks">
+    <span class="label">REMARKS — 備考</span>
+    ・現地テスト時の交通費は別途実費にてご請求いたします<br>
+    ・iOSアプリの審査期間（約1〜2週間）はApple側の都合によるもので工数に含みません<br>
+    ・コンテンツデータ（音声・写真・テキスト）はお客様にてご用意いただきます<br>
+    ・一括プラン（EST-2026-012）もあわせてご検討いただけます。どちらか一方をお選びください<br>
+    ・有効期限を過ぎた場合は再度お見積りをご提示いたします
+  </div>
+
+  <div class="footer-row">
+    <div class="payment-box">
+      <div class="footer-box-header">PAYMENT — お支払い方法</div>
+      <div class="footer-box-body">
+        銀行振込<br>
+        月額料金：毎月末締め翌月払い
+      </div>
+    </div>
+    <div class="issuer-box">
+      <div class="footer-box-header">ISSUED BY — 発行者</div>
+      <div class="footer-box-body">
+        〒 325-0303　栃木県那須郡那須町1438-4<br>
+        <strong>Axiom 代表　氏永 幹夫</strong><br>
+        TEL：090-6437-1257
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="back-link"><a href="index.html">&larr; 一覧に戻る</a></div>
+</body>
+</html>
