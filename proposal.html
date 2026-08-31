@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ガイドアプリ化のご提案 - 那須サファリパーク</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Helvetica Neue', Arial, sans-serif;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.85;
+  }
+  .header {
+    background: #1a1a2e;
+    color: white;
+    padding: 22px 24px 18px;
+  }
+  .header .brand { font-size: 13px; letter-spacing: 6px; font-weight: 300; opacity: 0.85; }
+  .header .doc-title { font-size: 21px; font-weight: 700; letter-spacing: 3px; margin-top: 6px; }
+  .accent-bar { height: 3px; background: linear-gradient(90deg, #4361ee, #7209b7, #f72585); }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 36px 24px 60px; }
+  .lede {
+    font-size: 14px;
+    color: #555;
+    background: #f6f8ff;
+    border: 1px solid #e8eaf6;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 36px;
+  }
+  h2 {
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin: 44px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1a1a2e;
+  }
+  h2 .tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #f72585;
+    border: 1px solid #f72585;
+    border-radius: 3px;
+    padding: 2px 6px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  h3 { font-size: 14.5px; margin: 22px 0 8px; }
+  p { font-size: 13.5px; margin-bottom: 12px; }
+  ul, ol { font-size: 13.5px; margin: 0 0 14px 22px; }
+  li { margin-bottom: 6px; }
+  strong { color: #1a1a2e; }
+  figure { margin: 18px 0; }
+  figure img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e0e4f0;
+    display: block;
+  }
+  figcaption {
+    font-size: 11.5px;
+    color: #777;
+    margin-top: 8px;
+  }
+  .callout {
+    background: #fff5f7;
+    border-left: 4px solid #f72585;
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    margin: 16px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin: 16px 0 8px;
+  }
+  th, td {
+    border: 1px solid #e0e4f0;
+    padding: 9px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #1a1a2e;
+    color: white;
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0.5px;
+  }
+  tr:nth-child(even) td { background: #f9faff; }
+  .closing {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 13.5px;
+    color: #333;
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 32px;
+    font-size: 12.5px;
+    color: #4361ee;
+    text-decoration: none;
+  }
+  .back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">NASU SAFARI PARK</div>
+    <div class="doc-title">音声ガイドのアプリ化に関するご提案</div>
+  </div>
+  <div class="accent-bar"></div>
+
+  <div class="wrap">
+    <div class="lede">
+      現在の音声ガイドは、7インチのタブレットを来園者へ貸し出す方式で運用されています。
+      この方式は、<strong>安全面・継続性・運用コスト</strong>の3方向で限界に近づいています。以下に整理いたします。
+    </div>
+
+    <h2><span class="tag">最優先</span>課題1：貸出タブレットのバッテリー発火リスク</h2>
+
+    <h3>すでに「ヒヤリハット」は起きています</h3>
+    <p>
+      これまでに、貸出タブレット<strong>4台</strong>でバッテリーの重大な異常が発生しています。いずれも、
+      <strong>バッテリーパックが膨張して内側から液晶画面を押し上げ、画面が割れ、電解液が漏れ出す</strong>という状態でした。
+    </p>
+
+    <figure>
+      <img src="assets/battery-swelling.jpg" alt="膨張したリチウムイオンバッテリーパック">
+      <figcaption>実際に回収されたバッテリーパック。内部のガス発生によりパウチが膨張し、パンパンに張っている状態が確認できます。</figcaption>
+    </figure>
+
+    <p>
+      リチウムイオンバッテリーの膨張は、内部でガスが発生していることを意味します。これは発火・破裂の<strong>直接的な前兆</strong>であり、
+      「膨らんでいるが今のところ発火はしていない」状態は、安全とは正反対の危険信号です。
+    </p>
+    <p>
+      労働災害の分野で知られる<strong>ハインリッヒの法則</strong>では、1件の重大事故の背後に29件の軽微な事故、そして300件のヒヤリハット
+      （危うく事故になりかけた事象）が存在するとされています。今回確認されている4台は、まさにこの前段階の警告サインです。
+      しかも、これは<strong>現場で異常に気づけた分だけ</strong>であり、気づかれていない個体がさらに存在する可能性があります。
+      <strong>対策を取らなければ、重大事故が起きるのは時間の問題</strong>と考えるべき状況です。
+    </p>
+
+    <h3>サファリパークだからこそ、被害が深刻化します</h3>
+    <ul>
+      <li><strong>猛獣エリア走行中は、車外に避難できません。</strong>通常の道路であれば車を停めて降りればよいところ、サファリではライオンなどの肉食獣に囲まれた車内で発火した場合、お客様は逃げ場を失います。</li>
+      <li><strong>夏場の車内は高温になり、リチウムイオンバッテリーの熱暴走を加速させます。</strong>発火リスクが最も高まる条件が、来園のピークシーズンと重なります。</li>
+      <li>同乗者に小さなお子様や高齢の方が含まれるケースも多く、避難がさらに困難になります。</li>
+    </ul>
+
+    <h3>一度の事故が、経営全体を揺るがします</h3>
+    <p>車両火災が発生すれば、負傷者・物損への賠償責任にとどまりません。</p>
+    <ul>
+      <li>SNSやニュースで「サファリの貸出機材から出火」と拡散 → 来園者の安全そのものへの不信</li>
+      <li>行政指導・営業自粛の可能性、風評による長期的な集客減</li>
+      <li>「防げたはずの事故だった」と報じられれば、経営責任が問われる</li>
+    </ul>
+    <div class="callout">
+      対策にかかる費用は、事故が一度でも起きたときの損失とは比較になりません。
+    </div>
+
+    <h2>課題2：現行システムは、近い将来維持できなくなります</h2>
+    <ul>
+      <li><strong>純正部品はすでに調達できず、互換品に頼るしかありません。</strong>その互換部品も在庫に限りがあり、いずれ入手できなくなります。</li>
+      <li><strong>現行システムは7インチ画面に固定して設計されています。</strong>7インチ以外の端末ではレイアウトが崩れるため、別サイズの端末に乗り換えるにはプログラム全体の再設計が必要です。これは初期投資を上回る費用がかかります。</li>
+      <li>つまり、<strong>タブレットの寿命がそのままシステムの寿命</strong>になります。老朽化しても、更新することも別の機種に乗り換えることもできない「行き止まり」の構造です。</li>
+    </ul>
+    <p>アプリ化すれば、来園者ご自身のスマートフォンで動作するため、特定の端末に縛られません。OSのアップデートに追従しながら長期的に運用できます。</p>
+
+    <h2>課題3：日々の運用負荷とコスト</h2>
+    <p>現行方式では、以下の作業が毎日発生しています。</p>
+    <ul>
+      <li><strong>貸出と回収</strong>：入園時に1台ずつ手渡し、退園時に回収。渡し忘れ、充電残量の確認が常につきまといます。</li>
+      <li><strong>タブレットの運搬</strong>：出口で回収した端末を入口へ運び戻す作業に、専任の人員が必要です。</li>
+      <li><strong>充電管理</strong>：全台数の充電状態を管理し続ける必要があります。</li>
+      <li><strong>データ更新</strong>：動物情報などを更新するたびに、<strong>全タブレットを1台ずつ更新</strong>しなければなりません。さらに現行の更新用PCソフトは処理が遅く、作業に時間がかかっています。</li>
+    </ul>
+    <p>アプリ化すれば、貸出・回収・運搬・充電管理はすべて不要になります。データ更新も<strong>サーバー側を1回更新するだけ</strong>で、全来園者に即座に反映されます。</p>
+
+    <h2>アプリ化で得られること（まとめ）</h2>
+    <table>
+      <tr><th>観点</th><th>現行（貸出タブレット）</th><th>アプリ化後</th></tr>
+      <tr><td>安全性</td><td>すでに4台でバッテリー膨張・液晶割れ・液漏れ。発火リスクを常に抱える</td><td>貸出機を廃止し、リスクをゼロに</td></tr>
+      <tr><td>継続性</td><td>部品切れ・7インチ固定で更新も乗り換えも不可</td><td>端末に縛られず長期運用が可能</td></tr>
+      <tr><td>運用</td><td>貸出・回収・運搬・充電・全台データ更新</td><td>すべて不要／サーバー更新1回で完結</td></tr>
+      <tr><td>来園者体験</td><td>貸出機の台数制限・順番待ち、操作に不慣れ</td><td>使い慣れた自分のスマホ、文字サイズ調整も自在</td></tr>
+      <tr><td>多言語</td><td>端末ごとに対応が必要</td><td>言語追加が容易（インバウンド・中国語対応など）</td></tr>
+      <tr><td>衛生面</td><td>不特定多数が触れる貸出機</td><td>各自のスマホのみ</td></tr>
+    </table>
+
+    <div class="closing">
+      最優先で対応すべきはバッテリーの発火リスクです。防げる事故は、起きる前に防ぐべきです。<br>
+      加えて、現行システムはそう遠くない時期に維持できなくなり、日々の運用負荷も小さくありません。<br><br>
+      <strong>ガイドアプリ化は、安全・継続性・コストの3方向を一度に解決する打ち手です。</strong><br><br>
+      具体的なお見積もりは、以下のページからご確認いただけます。
+    </div>
+
+    <a class="back-link" href="index.html">← お見積り資料一覧に戻る</a>
+  </div>
+</body>
+</html>
