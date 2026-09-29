@@ -100,14 +100,14 @@
     font-size: 13.5px;
     color: #333;
   }
-  .back-link {
-    display: inline-block;
+  .page-nav {
+    display: flex;
+    justify-content: space-between;
     margin-top: 32px;
     font-size: 12.5px;
-    color: #4361ee;
-    text-decoration: none;
   }
-  .back-link:hover { text-decoration: underline; }
+  .page-nav a { color: #4361ee; text-decoration: none; }
+  .page-nav a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -190,7 +190,7 @@
       <tr><td>継続性</td><td>部品切れ・7インチ固定で更新も乗り換えも不可</td><td>端末に縛られず長期運用が可能</td></tr>
       <tr><td>運用</td><td>貸出・回収・運搬・充電・全台データ更新</td><td>すべて不要／サーバー更新1回で完結</td></tr>
       <tr><td>来園者体験</td><td>貸出機の台数制限・順番待ち、操作に不慣れ</td><td>使い慣れた自分のスマホ、文字サイズ調整も自在</td></tr>
-      <tr><td>多言語</td><td>端末ごとに対応が必要</td><td>言語追加が容易（インバウンド・中国語対応など）</td></tr>
+      <tr><td>多言語</td><td>端末ごとに対応が必要</td><td>システム側は言語追加が容易（中国語などインバウンド対応も拡張可能）</td></tr>
       <tr><td>衛生面</td><td>不特定多数が触れる貸出機</td><td>各自のスマホのみ</td></tr>
     </table>
 
@@ -202,7 +202,10 @@
       お見積もりは以下のページからご確認いただけます。
     </div>
 
-    <a class="back-link" href="index.html">← お見積り資料一覧に戻る</a>
+    <div class="page-nav">
+      <a href="index.html">← 一覧に戻る</a>
+      <a href="market.html">市場価格参考資料へ →</a>
+    </div>
   </div>
 </body>
 </html>
